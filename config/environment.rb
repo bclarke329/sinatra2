@@ -9,5 +9,4 @@ ActiveRecord::Base.establish_connection(
 )
 
 require './app/controllers/application_controller'
-require './app/controllers/log_controller'
 require_all 'app'

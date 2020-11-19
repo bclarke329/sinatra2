@@ -1,7 +1,7 @@
-<form method="POST" action="/users/create_log">
+<form method="POST" action="/logs">
 <label for="status"> How is your skin feeling today? </label>
 <br>
-<select id="status" name="status">
+<select id="current_condition" name="current_condition">
     <option value="normal"> Normal </option>
     <option value="oily"> Oily </option>
     <option value="dry"> Dry </option>
@@ -12,13 +12,13 @@
 <label for="products">Have you tried any new products?</label>
 <br>
 <select id="products" name="new_products">
-    <option value="yes">Yes</option>
-    <option value="no">No</option>
+    <option value="true">Yes</option>
+    <option value="false">No</option>
 </select>
 <br>
 <label>If yes, list all new products!</label>
 <br>
-<input type="text">
+<input type="text" name="list_products">
 <br>
 <label>Comments, concerns, or just words of encouragement to yourself.</label> 
 <br>
