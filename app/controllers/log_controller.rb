@@ -1,24 +1,35 @@
 class LogController < ApplicationController
     
-    get '/logs' do 
+    get '/logs' do #index
+    if is_logged_in?
         @logs = Log.all
-        erb :'/logs/index'
+        erb :'/logs/index' 
+    else
+        redirect '/signup'
+        end
     end
 
-    get '/logs/new' do 
-         erb :'/logs/create_log'
+    get '/logs/new' do #new
+    if is_logged_in?
+         erb :'/logs/new'
+    else
+        "Sorry, you must be signed in to start logging."
+        end
     end 
     
-    post '/logs' do 
+    post '/logs' do #create
+    if is_logged_in?
         @log = Log.new(:current_condition => params[:current_condition], :new_products => params[:new_products], :list_products => params[:list_products], :comments => params[:comments])
         @log.save 
         # binding.pry
-        redirect "/logs"
+        redirect "/logs/index"
+        end 
     end 
 
-    # get '/logs/:id' do 
-    #     displays one log based on id in the url
-    # end 
+    get '/logs/:id' do 
+       @log = current_user.logs.find(params[:id])
+       erb :'/logs/show'
+    end 
 
     # get '/logs/:id/edit' do 
     #     displays edit form based on ID in url

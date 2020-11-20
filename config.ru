@@ -9,3 +9,4 @@ end
 
 run ApplicationController
 use LogController
+use UsersController
