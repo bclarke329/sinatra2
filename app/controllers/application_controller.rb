@@ -9,13 +9,17 @@ class ApplicationController < Sinatra::Base
     set :session_secret, "skinzLogs*"
   end
 
-  get "/" do 
-    erb :home
+  get "/" do
+    if logged_in? 
+      redirect to '/users/home'
+    else
+      erb :home
+    end
   end 
 
   helpers do
 
-    def is_logged_in?
+    def logged_in?
       !!session[:user_id]
     end
 

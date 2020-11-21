@@ -1,9 +1,6 @@
-<body>
-<% if current_user %>
-    <h1 align="center">All DermaLogs</h1>
-<% @logs.each do |log| %>
-<a href='/logs/:id'><%= log.created_at.strftime("%m/%d/%y") %></a>
+<h1 align="center ">All DermaLogs</h1>
+<ul>
+    <% @logs.each do |log| %>
+        <li><a href=<%= "/logs/#{log.id}" %>><%= log.created_at.strftime('%m/%d/%y') %></a></li>
 <br>
 <% end %>
-    <% end %>
-</body> 

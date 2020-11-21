@@ -1,0 +1,18 @@
+<br>
+<br>
+<h2 align="center"> <%= @log.created_at.strftime('%m/%d/%y') %></h2>
+<br>
+<div style="text-align:center">
+<h4>My skin feels: <%= @log.current_condition %> </h4>
+<br>
+<h4>I tried new products: </h4>
+<br>
+<h4>I tried these products: </h4>
+<br>
+<h4>Comments: <%= @log.comments %></h4>
+</div>
+<br>
+<div style="text-align:center">
+<a href="/">Edit Log</a> 
+<a href="/">Delete Log</a>
+</div>
