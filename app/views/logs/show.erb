@@ -13,6 +13,10 @@
 </div>
 <br>
 <div style="text-align:center">
-<a href="/">Edit Log</a> 
-<a href="/">Delete Log</a>
+<a href="/logs/<%= @log.id %>/edit">Edit Log</a> 
+
+<form action="/logs/<%= @log.id %>" method="post">
+<input id="hidden" type="hidden" name="_method" value="delete">
+<input type="submit" value="Delete Log">
+</form>
 </div>

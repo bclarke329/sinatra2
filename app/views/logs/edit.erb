@@ -1,0 +1,37 @@
+<h2 align="center">Edit your log</h2>
+<br>
+<br>
+<div style="text-align:center">
+<form method="POST" action="/logs/<%= @log.id %>" > 
+<input type="hidden" name="_method" value="patch">
+<label for="status"> How is your skin feeling today? </label>
+<br>
+<select id="current_condition" name="current_condition">
+    <option value="normal"> Normal </option>
+    <option value="oily"> Oily </option>
+    <option value="dry"> Dry </option>
+    <option value="sensitive"> Sensitive </option>
+    <option value="breaking-out"> Breaking Out </option>
+</select>
+<br>
+<br>
+<label for="products">Have you tried any new products?</label>
+<br>
+<select id="products" name="new_products">
+    <option value="true">Yes</option>
+    <option value="false">No</option>
+</select>
+<br>
+<br>
+<label>If yes, list all new products!</label>
+<br>
+<input type="text" name="list_products" value="">
+<br>
+<br>
+<label>Comments, concerns, or just words of encouragement to yourself.</label> 
+<br>
+<textarea name="comments" rows="10" cols="30"></textarea>
+<br>
+<input type="submit" value="Save Changes">
+</form>
+</div>
