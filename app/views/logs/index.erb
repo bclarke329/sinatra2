@@ -1,6 +1,8 @@
-<h1 align="center ">All DermaLogs</h1>
+<h1 align="center ">All Your DermaLogs</h1>
+<div style="text-align:center">
 <ul>
     <% @logs.each do |log| %>
         <li><a href=<%= "/logs/#{log.id}" %>><%= log.created_at.strftime('%m/%d/%y') %></a></li>
 <br>
+<div>
 <% end %>

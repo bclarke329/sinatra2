@@ -12,8 +12,6 @@ class UsersController < ApplicationController
         else 
           redirect '/failure'
         end 
-        # session[:user_id] = @user.id
-        # erb :signup
     end 
 
     get '/users/home' do 
@@ -32,7 +30,7 @@ class UsersController < ApplicationController
           
             redirect '/users/home'
         else
-          redirect '/failure'
+         erb :'/failure'
         end
     end 
 
@@ -41,10 +39,5 @@ class UsersController < ApplicationController
     session.clear
     erb :'/users/logout'
   end 
-
-  get '/failure' do 
-    erb :'/failure'
-  end
-
 
 end 
