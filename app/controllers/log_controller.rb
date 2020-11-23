@@ -50,11 +50,11 @@ class LogController < ApplicationController
 
     patch '/logs/:id' do #edit
         log = Log.find_by_id(params[:id])
-        # log.current_condition = params[:current_condition]
-        # log.new_product = params[:new_product]
-        # log.list_product = params[:list_product]
-        # log.comment = params[:comment]
-        # log.save
+        log.current_condition = params[:current_condition]
+        log.new_product = params[:new_product]
+        log.list_product = params[:list_product]
+        log.comment = params[:comment]
+        log.save
         binding.pry
         redirect to "/logs/#{log.id}"  
     end
