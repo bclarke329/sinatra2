@@ -85,6 +85,16 @@
     text-align: center;
   }
 
+  .delete_button {
+    border: 10px;
+    padding: 10px;
+    background: none;
+    font-family: inherit;
+    font-size: 1.0em;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
   footer.branding {
     border-top: 2px solid #ccc;
     margin-top: 20px;
