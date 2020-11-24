@@ -49,14 +49,16 @@ class LogController < ApplicationController
     end 
 
     patch '/logs/:id' do #edit
+    if logged_in?
         log = Log.find_by_id(params[:id])
-        log.current_condition = params[:current_condition]
-        log.new_product = params[:new_product]
-        log.list_product = params[:list_product]
-        log.comment = params[:comment]
+        log.update(current_condition: params[:current_condition])
+        log.update(new_products: params[:new_products])
+        log.update(list_products: params[:list_products])
+        log.update(comments: params[:comments])
         log.save
-        binding.pry
+        # binding.pry
         redirect to "/logs/#{log.id}"  
+        end 
     end
 
     delete '/logs/:id' do #destory

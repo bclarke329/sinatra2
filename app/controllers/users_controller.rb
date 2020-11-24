@@ -10,13 +10,14 @@ class UsersController < ApplicationController
         if @user.save
           redirect '/users/login'
         else 
-          redirect '/failure'
+          erb :'exists'
         end 
     end 
-
+ 
     get '/users/home' do 
         @user = User.find(session[:user_id])
         erb :'/users/home'
+
       end
     
     get '/users/login' do 
