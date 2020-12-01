@@ -11,7 +11,9 @@ Signup to get access to the app and start logging!
 
 ## Stretch Goals
 The current state of the project is the Minimum Viable Project. After my bootcamp, I would like to extend the functionality of the application. A few things I'd like to do is.. 
+<br>
 -Allow a user to upload images when creating a log
+<br>
 -Create social functionality where a user can share their logs publically, have others recommend products
 
 
