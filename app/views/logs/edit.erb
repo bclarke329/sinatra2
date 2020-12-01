@@ -19,7 +19,7 @@
 <br>
 <select id="products" name="new_products">
     <option value="true">Yes</option>
-    <option value="false">No</option>
+    <option value="false">No</option>   
 </select>
 <br>
 <br>
@@ -30,7 +30,7 @@
 <br>
 <label>Comments, concerns, or just words of encouragement to yourself.</label> 
 <br>
-<textarea name="comments" rows="10" cols="30"></textarea>
+<textarea name="comments" rows="10" cols="30"><%= @log.comments %></textarea>
 <br>
 <input type="submit" value="Save Changes">
 </form>

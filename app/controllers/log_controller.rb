@@ -49,8 +49,8 @@ class LogController < ApplicationController
     end 
 
     patch '/logs/:id' do #edit
-    if logged_in?
         log = Log.find_by_id(params[:id])
+    if log.user_id = current_user.id
         log.update(current_condition: params[:current_condition])
         log.update(new_products: params[:new_products])
         log.update(list_products: params[:list_products])
@@ -66,4 +66,6 @@ class LogController < ApplicationController
         log.destroy
         redirect to '/logs'
     end 
+
+    
 end 

@@ -10,3 +10,5 @@ use Rack::MethodOverride
 run ApplicationController
 use LogController
 use UsersController
+
+#serves as a 'run' file
