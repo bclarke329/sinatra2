@@ -4,7 +4,7 @@
 <br>
 <div style="text-align:center">
 <ul>
-    <% @logs.each do |log| %>
+    <% @sorted_logs.each do |log| %>
         <li><a href=<%= "/logs/#{log.id}" %>><%= log.created_at.strftime('%m/%d/%y') %></a></li>
 <br>
 <div>

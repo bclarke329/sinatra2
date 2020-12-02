@@ -3,7 +3,7 @@ class LogController < ApplicationController
     get '/logs' do #index
         if logged_in?
             @logs = Log.where(:user_id => current_user.id)
-            # binding.pry
+            @sorted_logs = @logs.order("created_at DESC")
             erb :'/logs/index'  
         else
             erb :'signin_failure'

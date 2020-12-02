@@ -101,6 +101,14 @@
     height: 500px;
   }
 
+  .dermalog_logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 600px;
+    height: 600px;
+  }
+
   .button {
     float: left;
     margin: 0 auto;
