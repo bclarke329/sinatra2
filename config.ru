@@ -11,4 +11,4 @@ run ApplicationController
 use LogController
 use UsersController
 
-#serves as a 'run' file
+# serves as a 'run' file

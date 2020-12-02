@@ -21,7 +21,7 @@ class LogController < ApplicationController
     
     get '/logs/:id' do #show
         @log = Log.find_by_id(params[:id])
-        if @log
+        if @log.user_id == current_user.id
             erb :'/logs/show'
         else
             erb :'signin_failure'    
@@ -42,19 +42,22 @@ class LogController < ApplicationController
     get '/logs/:id/edit' do 
     if logged_in?
         @log = Log.find_by_id(params[:id])
+        if @log.user_id == current_user.id
           erb :'/logs/edit' 
     else
         erb :'signin_failure'
-    end
+    end 
+        end
     end 
 
     patch '/logs/:id' do #edit
         log = Log.find_by_id(params[:id])
-    if log.user_id = current_user.id
-        log.update(current_condition: params[:current_condition])
-        log.update(new_products: params[:new_products])
-        log.update(list_products: params[:list_products])
-        log.update(comments: params[:comments])
+    if log.user_id == current_user.id
+        # log.update(current_condition: params[:current_condition])
+        # log.update(new_products: params[:new_products])
+        # log.update(list_products: params[:list_products])
+        # log.update(comments: params[:comments])
+        log.update(current_condition: params[:current_condition], new_products: params[:new_products], list_products: params[:list_products], comments: params[:comments] )
         log.save
         # binding.pry
         redirect to "/logs/#{log.id}"  
@@ -63,8 +66,10 @@ class LogController < ApplicationController
 
     delete '/logs/:id' do #destory
         log = Log.find_by_id(params[:id])
+        if log.user_id == current_user.id
         log.destroy
         redirect to '/logs'
+    end 
     end 
 
     

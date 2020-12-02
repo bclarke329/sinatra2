@@ -17,3 +17,5 @@ The current state of the project is the Minimum Viable Project. After my bootcam
 -Create social functionality where a user can share their logs publically, have others recommend products
 
 
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
