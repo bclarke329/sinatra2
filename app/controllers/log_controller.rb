@@ -24,43 +24,46 @@ class LogController < ApplicationController
         if @log.user_id == current_user.id
             erb :'/logs/show'
         else
-            erb :'signin_failure'    
+            erb :'not_authorized'    
         end 
     end 
  
   
     post '/logs' do #create 
+        if logged_in?
         @log = Log.create(params)
         @log.user_id = current_user.id
-        if @log.save 
-        redirect to "/logs/#{@log.id}"   
-        else
-            erb :"logs/new"   
+            if @log.save 
+                redirect to "/logs/#{@log.id}"   
+            else
+            erb :"logs/new"  
+            end  
         end
     end 
 
     get '/logs/:id/edit' do 
-    if logged_in?
-        @log = Log.find_by_id(params[:id])
-        if @log.user_id == current_user.id
-          erb :'/logs/edit' 
-    else
-        erb :'signin_failure'
-    end 
-        end
+        if logged_in?
+            @log = Log.find_by_id(params[:id])
+            if @log.user_id == current_user.id
+            erb :'/logs/edit' 
+            else
+            erb :'not_authorized' 
+            end 
+        end 
     end 
 
     patch '/logs/:id' do #edit
         log = Log.find_by_id(params[:id])
-    if log.user_id == current_user.id
+        if log.user_id == current_user.id
         # log.update(current_condition: params[:current_condition])
         # log.update(new_products: params[:new_products])
         # log.update(list_products: params[:list_products])
         # log.update(comments: params[:comments])
         log.update(current_condition: params[:current_condition], new_products: params[:new_products], list_products: params[:list_products], comments: params[:comments] )
         log.save
-        # binding.pry
-        redirect to "/logs/#{log.id}"  
+        redirect to "/logs/#{log.id}" 
+        else 
+        erb :'not_authorized' 
         end 
     end
 
@@ -69,8 +72,10 @@ class LogController < ApplicationController
         if log.user_id == current_user.id
         log.destroy
         redirect to '/logs'
-    end 
+        else  
+            erb :'not_authorized'
+        end 
     end 
 
-    
+
 end 
